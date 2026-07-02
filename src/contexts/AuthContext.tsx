@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             email,
             password,
             options: {
-                emailRedirectTo: `${window.location.origin}`,
+                emailRedirectTo: import.meta.env.VITE_EMAIN_REDIRECT || `${window.location.origin}`,
             },
         });
         return { error };
