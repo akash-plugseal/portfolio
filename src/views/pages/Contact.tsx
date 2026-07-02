@@ -1,22 +1,94 @@
+import { useState } from 'react';
 import { usePortfolioViewModel } from '../../viewmodels/usePortfolioViewModel';
-import { Mail, Link2, Code2, MessageCircle, Phone, ArrowRight, Quote } from 'lucide-react';
+import {
+  Mail,
+  Link2,
+  Code2,
+  MessageCircle,
+  Phone,
+  Quote,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
+} from 'lucide-react';
 import { Skeleton } from '../components/Skeleton';
+import {
+  sendContactEmail,
+  type ContactFormData,
+} from '../../services/contactService';
+
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 const Contact = () => {
   const { profile, footerLinks, loading } = usePortfolioViewModel();
 
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
   if (loading || !profile) {
     return (
-      <div className="contact-container" style={{ padding: '120px 20px 60px', maxWidth: 900, margin: '0 auto' }}>
+      <div
+        className="contact-container"
+        style={{ padding: '120px 20px 60px', maxWidth: 900, margin: '0 auto' }}
+      >
         <Skeleton height="48px" width="60%" />
         <Skeleton height="20px" width="40%" />
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 40 }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 24,
+            marginTop: 40,
+          }}
+        >
           <Skeleton height="200px" />
           <Skeleton height="200px" />
         </div>
       </div>
     );
   }
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('submitting');
+    setErrorMessage('');
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMessage('Please fill in all required fields.');
+      setSubmitStatus('error');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage('Please enter a valid email address.');
+      setSubmitStatus('error');
+      return;
+    }
+
+    const result = await sendContactEmail(formData);
+
+    if (result.success) {
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      setErrorMessage(result.error || 'Something went wrong. Please try again.');
+      setSubmitStatus('error');
+    }
+  };
 
   return (
     <div className="contact-container">
@@ -26,12 +98,14 @@ const Contact = () => {
           <span>AVAILABLE FOR PROJECTS</span>
         </div>
         <h1 className="contact-hero-title">
-          Let's build <span className="highlight">something</span><br />
+          Let's build <span className="highlight">something</span>
+          <br />
           together.
         </h1>
         <p className="contact-hero-description">
-          Whether you have a specific mobile architecture challenge or a creative 
-          application idea, I'm here to translate your vision into performant, elegant code.
+          Whether you have a specific mobile architecture challenge or a creative
+          application idea, I'm here to translate your vision into performant,
+          elegant code.
         </p>
       </section>
 
@@ -39,37 +113,90 @@ const Contact = () => {
       <div className="contact-content">
         {/* Contact Form */}
         <div className="contact-form-section glass-card">
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          {submitStatus === 'success' && (
+            <div className="form-feedback form-success">
+              <CheckCircle size={20} />
+              <span>
+                Message sent successfully! I'll get back to you soon.
+              </span>
+            </div>
+          )}
+
+          {submitStatus === 'error' && (
+            <div className="form-feedback form-error">
+              <AlertCircle size={20} />
+              <span>{errorMessage}</span>
+            </div>
+          )}
+
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="name">Full Name</label>
-                <input type="text" id="name" placeholder="John Doe" className="form-input" />
+                <label htmlFor="name">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="John Doe"
+                  className="form-input"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <input type="email" id="email" placeholder="john@example.com" className="form-input" />
+                <label htmlFor="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="john@example.com"
+                  className="form-input"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </div>
             </div>
             <div className="form-group">
               <label htmlFor="subject">Subject</label>
-              <select id="subject" className="form-input form-select">
-                <option value="new-project">New Mobile Project</option>
-                <option value="consultation">Consultation</option>
-                <option value="collaboration">Collaboration</option>
-                <option value="other">Other</option>
-              </select>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="What's this about?"
+                className="form-input"
+                value={formData.subject}
+                onChange={handleChange}
+              />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Your Message</label>
-              <textarea 
-                id="message" 
-                rows={5} 
-                placeholder="Tell me about your tech stack and project goals..." 
+              <label htmlFor="message">Your Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                placeholder="Tell me about your tech stack and project goals..."
                 className="form-input form-textarea"
+                value={formData.message}
+                onChange={handleChange}
+                required
               ></textarea>
             </div>
-            <button type="submit" className="btn-send-message">
-              Send Message <ArrowRight size={18} />
+            <button
+              type="submit"
+              className="btn-send-message"
+              disabled={submitStatus === 'submitting'}
+            >
+              {submitStatus === 'submitting' ? (
+                <>
+                  <Loader2 size={18} className="spin" /> Sending...
+                </>
+              ) : (
+                <>
+                  Send Message <Send size={18} />
+                </>
+              )}
             </button>
           </form>
         </div>
@@ -90,21 +217,39 @@ const Contact = () => {
                 <Link2 size={20} />
                 <div className="contact-info-content">
                   <span className="contact-info-label">LINKEDIN</span>
-                  <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LinkedIn
+                  </a>
                 </div>
               </div>
               <div className="contact-info-item">
                 <Code2 size={20} />
                 <div className="contact-info-content">
                   <span className="contact-info-label">GITHUB</span>
-                  <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
                 </div>
               </div>
               <div className="contact-info-item">
                 <MessageCircle size={20} />
                 <div className="contact-info-content">
                   <span className="contact-info-label">TWITTER</span>
-                  <a href={profile.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>
+                  <a
+                    href={profile.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Twitter
+                  </a>
                 </div>
               </div>
               <div className="contact-info-item">
@@ -121,14 +266,16 @@ const Contact = () => {
           <div className="quote-card glass-card">
             <Quote size={32} className="quote-icon" />
             <p className="quote-text">
-              "Efficiency is doing things right; effectiveness is doing the right things. 
-              Let's ensure your mobile experience is both."
+              "Efficiency is doing things right; effectiveness is doing the
+              right things. Let's ensure your mobile experience is both."
             </p>
             <div className="quote-author">
               <div className="quote-avatar"></div>
               <div className="quote-author-info">
                 <span className="quote-author-name">DevStack Lead</span>
-                <span className="quote-author-title">Cross-Platform Architect</span>
+                <span className="quote-author-title">
+                  Cross-Platform Architect
+                </span>
               </div>
             </div>
           </div>
@@ -138,10 +285,18 @@ const Contact = () => {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-brand">{profile.name}</div>
-        <div className="footer-copyright">© 2024 {profile.name} Portfolio. Built with Precision.</div>
+        <div className="footer-copyright">
+          © 2024 {profile.name} Portfolio. Built with Precision.
+        </div>
         <div className="footer-links">
           {footerLinks.map((link, idx) => (
-            <a key={idx} href={link.url} className="footer-link" target="_blank" rel="noopener noreferrer">
+            <a
+              key={idx}
+              href={link.url}
+              className="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {link.label}
             </a>
           ))}
