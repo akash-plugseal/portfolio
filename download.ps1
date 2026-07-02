@@ -1,0 +1,18 @@
+$urls = @{
+    "public/assets/images/home.png" = "https://lh3.googleusercontent.com/aida/AP1WRLvyZNGeoU1PU2OiLhwQGtv1Z8cDSRBAdQ9tFf0L0SM2ux3--DO8SyvVYRBpP4ycdLslHGfJxwHtzuiSDsKTZZvnNdY5SND70WhqtwbpO5FpqvpQBzlna0QUkr_4n92cmWcSLSz0dDSKty-Br8Tmhx2Zlec7V8G3pEm6r8hTEalBfeIzrMgnxsbTzZYLrVJ_yKCOpULfOl_1v9eDkTaaiBPHDXW8dcKDnQqCCNtNzrWaOPxEEHB4PanLFXtp"
+    "public/assets/images/projects.png" = "https://lh3.googleusercontent.com/aida/AP1WRLtZFkrUmKKhLkzuZlSw8mptPsusgm2VfeD1ilWGxg33BXjXlvWx9XR8XnDy5cdrxk3xcRj_cTOzTkG0J5XSqGaXmc-Mkd3c-mr2sxI1F7OOniFtSvrFIS5xabotgD_dKZyqvrY56AY3DeU-voPCkRahGQadP_PcfmPT_vzJEvMZQIoDBsYwLNsyCFM9qkxeg0BEhEqPD-ogVuPr7r0Q16UduzBuodgyA_nqBmcASMl5GqsoQ0AcBQfn7-s"
+    "public/assets/images/about.png" = "https://lh3.googleusercontent.com/aida/AP1WRLtW7zO0GQzaYPYYY38PVH9S_fbsIXdBdPNHw9QV4CmI8r9LAE3fi4TNxeeeIMzBdQFy0aqQFSuiEemnexcVQ4zGhxgCVpxWJc5mOyod3cwUrZGxO1fWnqhwg_BpgQBO4mzV5xLRnpt5oIeU9OuAi7rf_WPLCfMgtjyszKmMi1VAcXdMLEVaoDFarOe6R92uwu-A2ngFlsBYxzAhias8tXQ5vKQ9h0sqOx7t4p87MmH8gFAiJb_vEaJO5Is"
+    "public/assets/images/contact.png" = "https://lh3.googleusercontent.com/aida/AP1WRLtLJv9vrS-201RZ8D08uw6DJVGU3l_PpEOvNdEr4IdOLGV7zW3-beWvOsfWtXVHsg-4NskgbTf0yvql9Q9ZlmSV33jESvE8I7lDNrYUxVL9JcQA_IT75Gdei6kkG-qQc76Z0hiEWb8zX7waJ2lhfQaBM9nN54clUlZJkH8fJ15XVRhLqC1S_rTq2QbGl-N5xnCVzrPgyqiFALsVTpaICpd-drFDe7E03xVUNNbSD6zaFeJfYp_AD6g2q-fk"
+    "public/assets/images/blog.png" = "https://lh3.googleusercontent.com/aida/AP1WRLvPH3aixMVZFxzXY2a4oKvU4MefH5i3uTXC9NYlALRxoQQNAE8TmWP6jh8OlZpgwcB_k0H7h-sJkwcQ4u94z2P7XHv_5WSSwXfZIZEUU9FmEaRUvPI09bjCjIyYbP4c60byMd8t2o7ZpDt_DM2ZC8TSu-orIywqMcx_Hp5-ri8ZMrnbks4egJ2-ruvkHAT4RazwQ3OYrjDwDsFjAjDA7VQ8Vl2lbdjq6_HDrk6CIAOxGTtOhUimWG4_AZ8"
+    "public/assets/images/app-ui.png" = "https://lh3.googleusercontent.com/aida/AP1WRLv2baAWlZv_8d1b6GGB0lilZQC53t9si4QlvNtXBAYAjlB6JsfUAUEgLPc4dlOZuOHjsqgk9EfX27wUmqLzvfH5cSbt_UdDdT7AwfU4_X5uK1xjuPQLDmIMPOZtYie2BDlrBjbMq5-KGbe81dmKoyVYtFfRETmKFstPIeZOdykmZ-pxxjP1A2NyA8qTPI25SXdME37wM-d5WEoSAO9Ff9pxOGFBK8Nihca_e1GajnJ6Olk3lkRAxkfl5wTC"
+    "src/assets/data/home.html" = "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1NTYzNmM0MmE5ZGIwMzgzOGM4YWE0MjJjYzk1EgsSBxCWgqzJwxMYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDk3NTc1OTMzODg5NzY3MDE5MQ&filename=&opi=89354086"
+    "src/assets/data/projects.html" = "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1NTYzNmMxNTUzMTQwNDMxMTUwZjA5MTAyYzJmEgsSBxCWgqzJwxMYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDk3NTc1OTMzODg5NzY3MDE5MQ&filename=&opi=89354086"
+    "src/assets/data/about.html" = "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1NTYzN2E1NDI4Y2UwMzgzOWY4NDZhMWFjNjM3EgsSBxCWgqzJwxMYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDk3NTc1OTMzODg5NzY3MDE5MQ&filename=&opi=89354086"
+    "src/assets/data/contact.html" = "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1NTYzNmMyZmJkNDEwMzgzOWY4NDZhMWFjNjM3EgsSBxCWgqzJwxMYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDk3NTc1OTMzODg5NzY3MDE5MQ&filename=&opi=89354086"
+    "src/assets/data/blog.html" = "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzQ4MzRkOWU1ZmJjMjRhOWI4NWY3MDFlNWUxZWExMTIzEgsSBxCWgqzJwxMYAZIBJAoKcHJvamVjdF9pZBIWQhQxNDk3NTc1OTMzODg5NzY3MDE5MQ&filename=&opi=89354086"
+}
+
+foreach ($key in $urls.Keys) {
+    Write-Host "Downloading $key"
+    curl.exe -L -s -o $key $urls[$key]
+}

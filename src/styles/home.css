@@ -1,0 +1,290 @@
+/* Home Page */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding-bottom: 60px;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 60px 0 40px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 25, 29, 0.8);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-full);
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-tertiary);
+  text-transform: uppercase;
+}
+
+.hero-badge-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--color-on-background);
+}
+
+.hero-title-highlight {
+  background: linear-gradient(90deg, var(--color-tertiary), var(--color-tertiary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--color-on-surface-variant);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.hero-scroll-indicator {
+  margin-top: 40px;
+  animation: bounce 2s infinite;
+  color: var(--color-on-surface-variant);
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* Featured Projects Section */
+.featured-projects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.section-header-text {
+  max-width: 500px;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
+}
+
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-tertiary);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  margin-top: 8px;
+  transition: gap 0.2s;
+}
+
+.section-link:hover {
+  gap: 12px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.philosophy-title {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.philosophy-title-underline {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-tertiary), var(--color-secondary-light));
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 24px;
+  width: 100%;
+}
+
+.philosophy-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: var(--radius-lg);
+  background: rgba(22, 25, 29, 0.6);
+  border: 1px solid var(--color-outline-variant);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 140, 190, 0.3);
+}
+
+.philosophy-card.large {
+  grid-row: span 2;
+}
+
+.philosophy-card-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-tertiary);
+}
+
+.philosophy-card-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.philosophy-card-description {
+  font-size: 15px;
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
+}
+
+.philosophy-stat {
+  text-align: center;
+  padding: 20px;
+}
+
+.philosophy-stat-value {
+  font-size: 48px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-tertiary), var(--color-secondary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.philosophy-stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* CTA Section */
+.cta-section {
+  border-radius: var(--radius-xl);
+  padding: 80px 60px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(18, 20, 23, 0.9), rgba(22, 25, 29, 0.8));
+  border: 1px solid var(--color-outline-variant);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-tertiary), var(--color-secondary-light), transparent);
+}
+
+.cta-title {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.15;
+  max-width: 700px;
+}
+
+.cta-subtitle {
+  font-size: 16px;
+  color: var(--color-on-surface-variant);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cta-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-outline-variant);
+  background: transparent;
+  color: var(--color-on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cta-icon-btn:hover {
+  border-color: var(--color-tertiary);
+  color: var(--color-tertiary);
+}

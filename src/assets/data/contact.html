@@ -1,0 +1,326 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Contact | DevStack Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+    }
+    .gradient-border-focus:focus-within {
+      border-color: transparent;
+      background-image: linear-gradient(to right, #101415, #101415), linear-gradient(to right, #4cd7f6, #d0bcff);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+    }
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #06b6d4 0%, #571bc1 100%);
+    }
+    .glow-effect {
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#101415",
+            "on-primary-fixed": "#001f26",
+            "on-tertiary": "#263143",
+            "surface-variant": "#323537",
+            "primary-fixed": "#acedff",
+            "on-tertiary-container": "#313c4f",
+            "on-primary-fixed-variant": "#004e5c",
+            "on-primary-container": "#00424f",
+            "surface-container-high": "#272a2c",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#4cd7f6",
+            "on-secondary": "#3c0091",
+            "tertiary-container": "#9ca7be",
+            "on-tertiary-fixed": "#111c2d",
+            "on-secondary-container": "#c4abff",
+            "outline": "#869397",
+            "inverse-on-surface": "#2d3133",
+            "surface": "#101415",
+            "on-background": "#e0e3e5",
+            "on-primary": "#003640",
+            "surface-container-low": "#191c1e",
+            "primary-container": "#06b6d4",
+            "tertiary": "#bcc7de",
+            "surface-tint": "#4cd7f6",
+            "secondary-fixed": "#e9ddff",
+            "primary": "#4cd7f6",
+            "on-surface-variant": "#bcc9cd",
+            "error-container": "#93000a",
+            "on-secondary-fixed-variant": "#5516be",
+            "tertiary-fixed-dim": "#bcc7de",
+            "secondary": "#d0bcff",
+            "surface-container-lowest": "#0b0f10",
+            "surface-container-highest": "#323537",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#3c475a",
+            "background": "#101415",
+            "outline-variant": "#3d494c",
+            "tertiary-fixed": "#d8e3fb",
+            "surface-container": "#1d2022",
+            "on-error-container": "#ffdad6",
+            "on-surface": "#e0e3e5",
+            "inverse-surface": "#e0e3e5",
+            "on-secondary-fixed": "#23005c",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-primary": "#00687a",
+            "surface-bright": "#363a3b",
+            "secondary-container": "#571bc1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "20px",
+            "section-gap": "120px",
+            "base": "8px",
+            "gutter": "24px",
+            "container-max": "1200px"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "label-code": ["JetBrains Mono"],
+            "headline-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-caps": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "label-code": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+            "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+            "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar Navigation Shell -->
+<nav class="fixed top-0 w-full bg-surface/60 dark:bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30 dark:border-outline-variant/20 z-50">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary">DevStack Portfolio</div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Projects</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Blog</a><a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">About</a>
+<a class="font-body-md text-body-md text-primary dark:text-primary font-bold border-b-2 border-primary pb-1" href="#">Contact</a>
+<button class="primary-gradient-btn glow-effect text-on-primary-fixed font-bold py-2 px-6 rounded-lg transition-all duration-300 hover:scale-105">Hire Me</button>
+</div>
+<!-- Mobile Menu Trigger (Conceptual) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-gutter max-w-container-max mx-auto min-h-screen">
+<!-- Hero Section -->
+<section class="mb-20 text-center md:text-left">
+<div class="inline-block px-4 py-1.5 rounded-full glass-card border border-primary/20 mb-6 transition-all duration-700 opacity-100 translate-y-0">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Available for projects</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 max-w-4xl">
+        Let's build <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">something together</span>.
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+        Whether you have a specific mobile architecture challenge or a creative application idea, I'm here to translate your vision into performant, elegant code.
+      </p>
+</section>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Contact Form (Left) -->
+<div class="lg:col-span-7 glass-card p-8 md:p-12 rounded-xl transition-all duration-700 opacity-100 translate-y-0">
+<form class="space-y-6" id="contact-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant ml-1" for="name">Full Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none" id="name" name="name" placeholder="John Doe" required="" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant ml-1" for="email">Email Address</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none" id="email" name="email" placeholder="john@example.com" required="" type="email">
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant ml-1" for="subject">Subject</label>
+<select class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none appearance-none" id="subject" name="subject">
+<option value="project">New Mobile Project</option>
+<option value="consulting">Architecture Consulting</option>
+<option value="hiring">Full-time Opportunity</option>
+<option value="other">General Inquiry</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant ml-1" for="message">Your Message</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all outline-none resize-none" id="message" name="message" placeholder="Tell me about your tech stack and project goals..." required="" rows="6"></textarea>
+</div>
+<button class="w-full primary-gradient-btn glow-effect text-on-primary-fixed font-bold py-4 rounded-lg flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98]" type="submit">
+<span class="font-headline-sm text-[18px]">Send Message</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+<!-- Contact Details (Right) -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Details Card -->
+<div class="glass-card p-8 md:p-10 rounded-xl transition-all duration-700 opacity-100 translate-y-0">
+<h3 class="font-headline-md text-headline-md mb-8">Contact Details</h3>
+<div class="space-y-8">
+<!-- Email Item -->
+<div class="flex items-start gap-4 group">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase">Email</p>
+<a class="font-body-lg text-body-lg text-on-surface hover:text-primary transition-colors" href="mailto:hello@devstack.io">hello@devstack.io</a>
+</div>
+</div>
+<!-- Social Links Cluster -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-outline-variant/20">
+<!-- LinkedIn -->
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">share</span>
+</div>
+<span class="font-body-md text-body-md">LinkedIn</span>
+</a>
+<!-- GitHub -->
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
+</div>
+<span class="font-body-md text-body-md">GitHub</span>
+</a>
+<!-- Twitter/X -->
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<span class="font-body-md text-body-md">Twitter</span>
+</a>
+<!-- Calendly / Booking -->
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+</div>
+<span class="font-body-md text-body-md">Book a Call</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Atmospheric Card / Quote -->
+<div class="relative overflow-hidden glass-card p-8 rounded-xl border-secondary/20 transition-all duration-700 opacity-100 translate-y-0">
+<div class="absolute -right-12 -top-12 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary mb-4" style="font-size: 40px;">format_quote</span>
+<p class="font-body-md text-body-md italic text-on-surface-variant mb-4">
+              "Efficiency is doing things right; effectiveness is doing the right things. Let's ensure your mobile experience is both."
+            </p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant" data-alt="A professional studio portrait of a modern software architect with a slight smile, sharp lighting, and a dark minimalist tech background. The mood is confident and knowledgeable, featuring soft cyan rim lighting to match the brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc746GC_t1BMcmJaw2lst9um4ujns7IG_wo_K17fqw2wEGlUbm7esHKqieJVA5ikTJMCMdleuMm3O1D6uJBtd7Cl1Idtpu3bBJmuI-ywJSls2KeD0yj7ff-dQ6ppDmc0VkFpqQlZEZlzi5Q-Fme6B410iySoexl97n4ag3n6uO50e1kVtELm42gMvZ7iQmYRZOpUcQAkmE3_jdw-DWWUNcP_5I8aiQeMtUuqH3bx68-KBGBlA2O3TpsaC9OWLEPJgIkKWod4FpwLtF')"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface font-bold">DevStack Lead</p>
+<p class="text-[11px] text-primary">Senior Mobile Architect</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-dim dark:bg-surface-dim border-t border-outline-variant/30 dark:border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center py-gutter px-gutter max-w-container-max mx-auto gap-6">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary">DevStack Portfolio</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant text-center md:text-left">
+        © 2024 DevStack Portfolio. Built with Precision.
+      </p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100 font-body-md text-body-md" href="#">GitHub</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100 font-body-md text-body-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100 font-body-md text-body-md" href="#">Twitter</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors opacity-80 hover:opacity-100 font-body-md text-body-md" href="mailto:hello@devstack.io">Email</a>
+</div>
+</div>
+</footer>
+<script>
+    // Lightweight micro-interaction for the form
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = contactForm.querySelector('button[type="submit"]');
+        const originalContent = btn.innerHTML;
+        
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Sending...';
+        
+        // Simulating submission
+        setTimeout(() => {
+          btn.innerHTML = '<span class="material-symbols-outlined text-green-400">check_circle</span> Sent!';
+          btn.classList.remove('primary-gradient-btn');
+          btn.classList.add('bg-green-500/20', 'border', 'border-green-500/50', 'text-green-400');
+          
+          setTimeout(() => {
+            contactForm.reset();
+            btn.disabled = false;
+            btn.innerHTML = originalContent;
+            btn.classList.add('primary-gradient-btn');
+            btn.classList.remove('bg-green-500/20', 'border', 'border-green-500/50', 'text-green-400');
+          }, 3000);
+        }, 1500);
+      });
+    }
+
+    // Scroll reveal effect for cards
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+      observer.observe(card);
+    });
+  </script>
+
+
+</body></html>

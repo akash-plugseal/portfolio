@@ -1,0 +1,403 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About Me | DevStack Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        :root {
+            --glass-bg: rgba(30, 41, 59, 0.6);
+            --glass-border: rgba(51, 65, 85, 0.5);
+        }
+        body {
+            background-color: #101415;
+            color: #e0e3e5;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4cd7f6 0%, #d0bcff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .accent-glow {
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, #4cd7f6, #571bc1);
+        }
+        .tech-chip {
+            transition: all 0.3s ease;
+        }
+        .tech-chip:hover {
+            transform: translateY(-2px);
+            background: rgba(172, 221, 255, 0.15);
+        }
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4cd7f6;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#101415",
+                    "on-primary-fixed": "#001f26",
+                    "on-tertiary": "#263143",
+                    "surface-variant": "#323537",
+                    "primary-fixed": "#acedff",
+                    "on-tertiary-container": "#313c4f",
+                    "on-primary-fixed-variant": "#004e5c",
+                    "on-primary-container": "#00424f",
+                    "surface-container-high": "#272a2c",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#4cd7f6",
+                    "on-secondary": "#3c0091",
+                    "tertiary-container": "#9ca7be",
+                    "on-tertiary-fixed": "#111c2d",
+                    "on-secondary-container": "#c4abff",
+                    "outline": "#869397",
+                    "inverse-on-surface": "#2d3133",
+                    "surface": "#101415",
+                    "on-background": "#e0e3e5",
+                    "on-primary": "#003640",
+                    "surface-container-low": "#191c1e",
+                    "primary-container": "#06b6d4",
+                    "tertiary": "#bcc7de",
+                    "surface-tint": "#4cd7f6",
+                    "secondary-fixed": "#e9ddff",
+                    "primary": "#4cd7f6",
+                    "on-surface-variant": "#bcc9cd",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "tertiary-fixed-dim": "#bcc7de",
+                    "secondary": "#d0bcff",
+                    "surface-container-lowest": "#0b0f10",
+                    "surface-container-highest": "#323537",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#3c475a",
+                    "background": "#101415",
+                    "outline-variant": "#3d494c",
+                    "tertiary-fixed": "#d8e3fb",
+                    "surface-container": "#1d2022",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e0e3e5",
+                    "inverse-surface": "#e0e3e5",
+                    "on-secondary-fixed": "#23005c",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "inverse-primary": "#00687a",
+                    "surface-bright": "#363a3b",
+                    "secondary-container": "#571bc1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "section-gap": "120px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-code": ["JetBrains Mono"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-code": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="selection:bg-primary/30">
+<div class="custom-cursor hidden md:block" id="cursor" style="transform: scale(1); background-color: transparent; left: 100px; top: 1085px;"></div>
+<!-- TopNavBar -->
+<header class="bg-surface/60 dark:bg-surface/60 backdrop-blur-xl fixed top-0 w-full border-b border-outline-variant/30 dark:border-outline-variant/20 z-50">
+<nav class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto z-50 transition-all duration-300 ease-in-out">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary">DevStack</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Projects</a><a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Blog</a>
+<a class="font-body-md text-body-md text-primary dark:text-primary font-bold border-b-2 border-primary pb-1" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary font-body-md text-body-md px-6 py-2 rounded-lg font-bold hover:scale-105 transition-all">Hire Me</button>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-6">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">3 YEARS IN THE STACK</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg">Architecting <span class="gradient-text">Experiences</span> through Code.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        I am a cross-platform mobile specialist dedicated to building high-performance, pixel-perfect applications. My journey is defined by a obsession with clean architecture and a love for intuitive design.
+                    </p>
+</div>
+<div class="w-full md:w-1/3 aspect-square relative group">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+<div class="relative h-full w-full glass-panel rounded-3xl overflow-hidden">
+<img class="w-full h-full object-cover" alt="A fascinating and interactive mobile app interface glowing on a modern smartphone screen. The image features high-tech UI elements like floating 3D charts, holographic code snippets, and vibrant glassmorphism effects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPUdOFb7QoGu2oEVOnBjvLhFc8cr0t1GOIvfXZlVlJw5GhsLyNKE5m1BrenXzHtA1tj1rsknByYE61FU05WdgDqDb3CY9at12o_GTHxblYH4xFeWkfqHCiltKZzII-r09GqvndLLM2bdvkqxHPFL89Ucy5GCc86_K2MOxR_pU2ReGxVjOEYANgj4PLydUrtDTCSEiq9JYYqlPIqXFVgdD5dZV1DfBwilcLDS8dIRBgdYyqr8xj6W96UMiXTl85S4svXbXR_0I1IKBm">
+</div>
+</div>
+</div>
+</section>
+<!-- My Story -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<div class="glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] -mr-32 -mt-32"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md">The Journey So Far</h2>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<p class="">It started with a curiosity about how the apps in our pockets actually worked. Over the last 3 years, that curiosity evolved into a professional career focused on bridging the gap between complex logic and elegant user interfaces.</p>
+<p class="">I transitioned from traditional web development to mobile-first environments, quickly realizing that the constraints of mobile—limited real estate and high performance expectations—were exactly where I thrived as a problem solver.</p>
+<p class="">Today, I specialize in Flutter and React Native, leveraging the best of both worlds to deliver scalable products that don't compromise on native feel.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+<span class="font-display-lg text-headline-md text-primary mb-2">12+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Apps Launched</span>
+</div>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+<span class="font-display-lg text-headline-md text-secondary mb-2">3k+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Git Commits</span>
+</div>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+<span class="font-display-lg text-headline-md text-primary mb-2">99%</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Crash-Free Rate</span>
+</div>
+<div class="glass-panel p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+<span class="font-display-lg text-headline-md text-secondary mb-2">100%</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Client Satisfaction</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Toolbox (Bento Grid) -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="font-headline-md text-headline-md mb-2">Technical Toolbox</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">My core stack and the tools that power my workflow.</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full text-label-caps bg-primary/10 text-primary border border-primary/20">Active Focus</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Flutter Card -->
+<div class="md:col-span-2 glass-panel p-8 rounded-3xl flex flex-col justify-between hover:border-primary/50 transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">flutter_dash</span>
+<span class="font-label-code text-label-code bg-primary/10 text-primary px-3 py-1 rounded-lg">Primary</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Flutter</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Building expressive, high-performance native apps for iOS, Android, and Web from a single codebase.</p>
+</div>
+</div>
+<!-- React Native Card -->
+<div class="md:col-span-2 glass-panel p-8 rounded-3xl flex flex-col justify-between hover:border-secondary/50 transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl text-secondary">deployed_code</span>
+<span class="font-label-code text-label-code bg-secondary/10 text-secondary px-3 py-1 rounded-lg">Expert</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">React Native</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Leveraging the power of React to build truly native mobile experiences with seamless bridge performance.</p>
+</div>
+</div>
+<!-- Languages -->
+<div class="glass-panel p-6 rounded-3xl flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">javascript</span>
+<h4 class="font-headline-sm text-headline-sm !text-lg">JS / TS</h4>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">code</span>
+<h4 class="font-headline-sm text-headline-sm !text-lg">Dart</h4>
+</div>
+</div>
+<!-- Design Tools -->
+<div class="glass-panel p-6 rounded-3xl flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">brush</span>
+<h4 class="font-headline-sm text-headline-sm !text-lg">Figma</h4>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">layers</span>
+<h4 class="font-headline-sm text-headline-sm !text-lg">Adobe XD</h4>
+</div>
+</div>
+<!-- Backend/Cloud -->
+<div class="md:col-span-2 glass-panel p-6 rounded-3xl flex items-center justify-between">
+<div class="flex flex-wrap gap-3">
+<span class="tech-chip px-4 py-2 glass-panel rounded-full font-label-code text-label-code">Firebase</span>
+<span class="tech-chip px-4 py-2 glass-panel rounded-full font-label-code text-label-code">Supabase</span>
+<span class="tech-chip px-4 py-2 glass-panel rounded-full font-label-code text-label-code">Node.js</span>
+<span class="tech-chip px-4 py-2 glass-panel rounded-full font-label-code text-label-code">GraphQL</span>
+</div>
+<div class="hidden sm:block">
+<span class="material-symbols-outlined text-3xl opacity-20">cloud</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Milestones -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<h2 class="font-headline-md text-headline-md mb-12 text-center">Professional Milestones</h2>
+<div class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-1/2 transform -translate-x-1/2 h-full w-px timeline-line opacity-20"></div>
+<div class="space-y-16">
+<!-- Milestone 1 -->
+<div class="relative flex items-center justify-between md:flex-row flex-col gap-8">
+<div class="w-full md:w-5/12 md:text-right">
+<span class="font-label-caps text-label-caps text-primary mb-2 block">2023 - PRESENT</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Senior Mobile Engineer @ TechFlow</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Leading the transition of the core flagship product to a Flutter-based architecture, reducing development time by 40%.</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary accent-glow border-4 border-surface-dim z-10"></div>
+<div class="w-full md:w-5/12 flex justify-start">
+<div class="glass-panel p-4 rounded-xl border-l-4 border-primary">
+<span class="font-label-code text-label-code text-on-surface">Architected scalable design systems</span>
+</div>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="relative flex items-center justify-between md:flex-row-reverse flex-col gap-8">
+<div class="w-full md:w-5/12">
+<span class="font-label-caps text-label-caps text-secondary mb-2 block">2022 - 2023</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Full Stack Developer @ CreativeLabs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Developed end-to-end mobile solutions using React Native and Node.js. Optimized app startup times by 25%.</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-secondary accent-glow border-4 border-surface-dim z-10"></div>
+<div class="w-full md:w-5/12 flex justify-end">
+<div class="glass-panel p-4 rounded-xl border-r-4 border-secondary">
+<span class="font-label-code text-label-code text-on-surface">Built 5+ cross-platform MVP apps</span>
+</div>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="relative flex items-center justify-between md:flex-row flex-col gap-8">
+<div class="w-full md:w-5/12 md:text-right">
+<span class="font-label-caps text-label-caps text-primary mb-2 block">2021 - 2022</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Junior Developer @ StartUp Sphere</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Began professional journey focusing on UI/UX implementation and frontend responsiveness.</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary accent-glow border-4 border-surface-dim z-10"></div>
+<div class="w-full md:w-5/12 flex justify-start">
+<div class="glass-panel p-4 rounded-xl border-l-4 border-primary">
+<span class="font-label-code text-label-code text-on-surface">Mastered Dart &amp; React primitives</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<div class="relative rounded-[40px] overflow-hidden bg-secondary-container p-12 text-center group">
+
+<div class="relative z-10 max-w-2xl mx-auto space-y-8">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-md text-on-secondary-container">Ready to build something <br>extraordinary?</h2>
+<p class="font-body-lg text-body-lg text-on-secondary-container/80">I'm currently open to new opportunities and interesting collaborations in the mobile space.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-on-secondary-container text-secondary-container font-bold px-8 py-4 rounded-2xl hover:scale-105 transition-transform">Get In Touch</button>
+<button class="glass-panel border-on-secondary-container/20 text-on-secondary-container font-bold px-8 py-4 rounded-2xl hover:bg-on-secondary-container/10 transition-colors">Download Resume</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dim dark:bg-surface-dim w-full border-t border-outline-variant/30 dark:border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center py-gutter px-gutter max-w-container-max mx-auto gap-8">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary">DevStack</div>
+<div class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant text-center md:text-left">
+                © 2024 DevStack Portfolio. Built with Precision.
+            </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Custom cursor logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Hover effects for cursor
+        const interactables = document.querySelectorAll('a, button, .glass-panel');
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2.5)';
+                cursor.style.backgroundColor = 'rgba(76, 215, 246, 0.1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.backgroundColor = 'transparent';
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-xl');
+                header.classList.remove('bg-surface/60');
+                header.classList.add('bg-surface/90');
+            } else {
+                header.classList.remove('shadow-xl');
+                header.classList.add('bg-surface/60');
+                header.classList.remove('bg-surface/90');
+            }
+        });
+    </script>
+
+
+</body></html>
